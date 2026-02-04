@@ -46,4 +46,7 @@ Route::middleware(['auth:sanctum','admin'])->group(function () {
     Route::get('/products', function () {
         return \App\Models\Product::latest()->get();
     });
+
+
+    
 });
