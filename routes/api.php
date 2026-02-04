@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/login', [AuthController::class, 'login']);
+Route::get('/products', function () {
+    return \App\Models\Product::latest()->get();
+});
 
 Route::middleware(['auth:sanctum', 'admin'])
     ->apiResource('/admin/products', ProductController::class);
@@ -43,9 +46,6 @@ Route::middleware(['auth:sanctum','admin'])->group(function () {
 
 
 
-    Route::get('/products', function () {
-        return \App\Models\Product::latest()->get();
-    });
 
 
     
